@@ -1,4 +1,4 @@
-# 🤖 Robô Sumô Autônomo — Arduino
+# 🤖 Robô Sumô — Arduino
 
 Código-fonte de um robô sumô autônomo baseado em Arduino, utilizando tração diferencial (2 rodas), sensores ultrassônicos HC-SR04 e drivers BTS7960.
 
