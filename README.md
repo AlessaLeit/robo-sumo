@@ -27,13 +27,13 @@ Componente - Quantidade
 
 ### Drivers BTS7960
 
-* DRIVER 1 — Motor ESQUERDO (Verde/Laranja) *
+#### DRIVER 1 — Motor ESQUERDO (Verde/Laranja) 
 - D1_RPWM = 53
 - D1_LPWM = 50
 - D1_RENABLE = 52
 - D1_LENABLE = 51
 
-* DRIVER 2 — Motor DIREITO (Amarelo/Roxo) *
+#### DRIVER 2 — Motor DIREITO (Amarelo/Roxo) 
 - D2_RPWM = 23
 - D2_LPWM = 24
 - D2_RENABLE = 22
