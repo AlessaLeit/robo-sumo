@@ -1,21 +1,22 @@
-// ==================== DRIVER 1 — Motor ESQUERDO (Verde/Laranja) ====================
-// ATENÇÃO: Motor montado ao contrário — RPWM e LPWM invertidos no código!
+// ==================== DRIVERS BTS7960 ====================
+// Driver 1 — Motor ESQUERDO (Verde/Laranja) — INVERTIDO
 #define D1_RPWM      53
 #define D1_LPWM      50
 #define D1_RENABLE   52
 #define D1_LENABLE   51
 
-// ==================== DRIVER 2 — Motor DIREITO (Amarelo/Roxo) ====================
+// Driver 2 — Motor DIREITO (Amarelo/Roxo) — NORMAL
 #define D2_RPWM      23
 #define D2_LPWM      24
 #define D2_RENABLE   22
 #define D2_LENABLE   25
 
-#define VELOCIDADE 150
+#define VELOCIDADE     150
+#define TEMPO_GIRO     630   // Ajuste para girar ~90°
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("=== Teste com Driver 1 invertido ===");
+  Serial.println("=== Teste de Alinhamento: Frente → Direita → Frente → Esquerda ===");
 
   pinMode(D1_RPWM, OUTPUT);
   pinMode(D1_LPWM, OUTPUT);
@@ -26,63 +27,63 @@ void setup() {
   pinMode(D2_RENABLE, OUTPUT);
   pinMode(D2_LENABLE, OUTPUT);
 
-  // Habilita ambos os drivers
   digitalWrite(D1_RENABLE, HIGH);
   digitalWrite(D1_LENABLE, HIGH);
   digitalWrite(D2_RENABLE, HIGH);
   digitalWrite(D2_LENABLE, HIGH);
+
+  delay(1000);  // 1s para preparar
 }
 
 void loop() {
-  // ========== TESTE 1: AMBOS PARA FRENTE ==========
-  // Driver 2: RPWM = frente (normal)
-  // Driver 1: LPWM = frente (invertido, pois o motor está ao contrário)
-  Serial.println("1. Ambos FRENTE");
-  analogWrite(D1_LPWM, VELOCIDADE);   // ← INVERTIDO: LPWM vira "frente" pro D1
-  analogWrite(D1_RPWM, 0);
-  analogWrite(D2_RPWM, VELOCIDADE);   // ← Normal
-  analogWrite(D2_LPWM, 0);
-  delay(3000);
-
-  pararMotores();
-  delay(2000);
-
-  // ========== TESTE 2: AMBOS PARA TRÁS ==========
-  // Driver 2: LPWM = ré (normal)
-  // Driver 1: RPWM = ré (invertido)
-  Serial.println("2. Ambos RÉ");
+  // ============ 1. FRENTE por 4s ============
+  // D1 (invertido): RPWM = frente | D2 (normal): LPWM = frente
+  Serial.println("1. FRENTE");
   analogWrite(D1_LPWM, 0);
-  analogWrite(D1_RPWM, VELOCIDADE);   // ← INVERTIDO: RPWM vira "ré" pro D1
+  analogWrite(D1_RPWM, VELOCIDADE);
   analogWrite(D2_RPWM, 0);
-  analogWrite(D2_LPWM, VELOCIDADE);   // ← Normal
-  delay(3000);
+  analogWrite(D2_LPWM, VELOCIDADE);
+  delay(4000);
 
   pararMotores();
-  delay(2000);
+  delay(500);
 
-  // ========== TESTE 3: GIRO HORÁRIO ==========
-  // D1 (esquerda) vai FRENTE | D2 (direita) vai RÉ
-  Serial.println("3. Giro HORÁRIO");
-  analogWrite(D1_LPWM, VELOCIDADE);   // D1 frente (invertido)
+  // ============ 2. GIRAR DIREITA (horário) ============
+  // Lógica: esquerda (D1) frente + direita (D2) ré
+  //          D1_RPWM = frente  |  D2_RPWM = ré
+  Serial.println("2. GIRAR DIREITA");
+  analogWrite(D1_LPWM, 0);
+  analogWrite(D1_RPWM, VELOCIDADE);  // D1 frente
+  analogWrite(D2_RPWM, VELOCIDADE);  // D2 ré
+  analogWrite(D2_LPWM, 0);
+  delay(TEMPO_GIRO);
+
+  pararMotores();
+  delay(500);
+
+  // ============ 3. FRENTE por 4s ============
+  Serial.println("3. FRENTE");
+  analogWrite(D1_LPWM, 0);
+  analogWrite(D1_RPWM, VELOCIDADE);
+  analogWrite(D2_RPWM, 0);
+  analogWrite(D2_LPWM, VELOCIDADE);
+  delay(4000);
+
+  pararMotores();
+  delay(500);
+
+  // ============ 4. GIRAR ESQUERDA (anti-horário) ============
+  // Lógica: esquerda (D1) ré + direita (D2) frente
+  //          D1_LPWM = ré  |  D2_LPWM = frente
+  Serial.println("4. GIRAR ESQUERDA");
+  analogWrite(D1_LPWM, VELOCIDADE);  // D1 ré
   analogWrite(D1_RPWM, 0);
   analogWrite(D2_RPWM, 0);
-  analogWrite(D2_LPWM, VELOCIDADE);   // D2 ré
-  delay(3000);
+  analogWrite(D2_LPWM, VELOCIDADE);  // D2 frente
+  delay(TEMPO_GIRO);
 
   pararMotores();
-  delay(2000);
-
-  // ========== TESTE 4: GIRO ANTI-HORÁRIO ==========
-  // D1 (esquerda) vai RÉ | D2 (direita) vai FRENTE
-  Serial.println("4. Giro ANTI-HORÁRIO");
-  analogWrite(D1_LPWM, 0);
-  analogWrite(D1_RPWM, VELOCIDADE);   // D1 ré (invertido)
-  analogWrite(D2_RPWM, VELOCIDADE);   // D2 frente
-  analogWrite(D2_LPWM, 0);
-  delay(3000);
-
-  pararMotores();
-  delay(5000);
+  delay(500);
 }
 
 void pararMotores() {
