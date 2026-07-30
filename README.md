@@ -1,4 +1,4 @@
-# 🤖 Robô Sumô — Arduino
+# Robô Sumô — Arduino
 
 Código-fonte de um robô sumô autônomo baseado em Arduino, utilizando tração diferencial (2 rodas), sensores ultrassônicos HC-SR04 e drivers BTS7960.
 
@@ -59,7 +59,8 @@ Envie `codigo\_robosumo.ino` para o Arduino. O robô executará em sequência:
 7. Giro anti-horário (3s)
 8. Parada (5s) → repete
 
-
+## Anotações Aula
+-> HC-SR04 com fita preta é o terciario 
 
 
 
