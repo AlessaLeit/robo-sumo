@@ -40,15 +40,15 @@ Componente - Quantidade
 
 ### Sensores
 
-#### Sensor CENTRO (frente) - sem fita
+#### Sensor CENTRO (frente) - sem fita (Verde/Vermelho)
 - TRIG_CENTRO = 44
 - ECHO_CENTRO = 45
 
-#### Sensor DIAGONAL ESQUERDA - fita T
+#### Sensor DIAGONAL ESQUERDA - fita T (Branco/Amarelo)
 - TRIG_ESQ = 37
 - ECHO_ESQ = 36
 
-#### Sensor DIAGONAL DIREITA - fita R
+#### Sensor DIAGONAL DIREITA - fita R (Branco/Marrom)
 - TRIG_DIR = 43
 - ECHO_DIR = 42
 
