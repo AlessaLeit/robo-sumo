@@ -39,6 +39,20 @@ Componente - Quantidade
 - D2_RENABLE = 22
 - D2_LENABLE = 25
 
+### Sensores 
+
+#### Sensor CENTRO (frente) - sem fita
+- TRIG_CENTRO  = 44   
+- ECHO_CENTRO  = 45
+
+#### Sensor DIAGONAL ESQUERDA - fita T
+- TRIG_ESQ = 46
+- ECHO_ESQ = 47
+
+#### Sensor DIAGONAL DIREITA - fita R 
+- TRIG_DIR = 43
+- ECHO_DIR = 42
+
 ### Alimentação
 
 - A **USB do Arduino** não é suficiente para alimentar os motores
