@@ -16,7 +16,7 @@ Componente - Quantidade
 - Arduino Mega 2560 - 1 
 - Driver BTS7960 (Ponte H) - 2 
 - Motor DC - 2 
-- Sensor Ultrassônico HC-SR04 - 2 
+- Sensor Ultrassônico HC-SR04 - 3 
 - Sensor de Linha TCRT5000  - 1 
 - Bateria externa (para motores) - 1
 
@@ -40,17 +40,24 @@ Componente - Quantidade
 
 ### Sensores
 
-#### Sensor CENTRO (frente) - sem fita (Verde/Vermelho)
+#### 3 Sensores Ultrassônicos HC-SR04 
+
+1. Sensor CENTRO (frente) - sem fita (Verde/Vermelho)
 - TRIG_CENTRO = 44
 - ECHO_CENTRO = 45
 
-#### Sensor DIAGONAL ESQUERDA - fita T (Branco/Amarelo)
+2. Sensor DIAGONAL ESQUERDA - fita T (Branco/Amarelo)
 - TRIG_ESQ = 37
 - ECHO_ESQ = 36
 
-#### Sensor DIAGONAL DIREITA - fita R (Branco/Marrom)
+3. Sensor DIAGONAL DIREITA - fita R (Branco/Marrom)
 - TRIG_DIR = 43
 - ECHO_DIR = 42
+
+#### Sensor de Linha TCRT5000  
+- S1 = A10
+- S3 = X
+- S5 = A13 
 
 ### Alimentação
 
