@@ -17,7 +17,7 @@ Componente - Quantidade
 - Driver BTS7960 (Ponte H) - 2 
 - Motor DC - 2 
 - Sensor Ultrassônico HC-SR04 - 3 
-- Sensor de Linha TCRT5000  - 1 
+- Sensor de Linha TCRT5000 ou HW871 - 1 
 - Bateria externa (para motores) - 1
 
 ##  Mapeamento de Pinos
@@ -54,9 +54,8 @@ Componente - Quantidade
 - TRIG_DIR = 43
 - ECHO_DIR = 42
 
-#### Sensor de Linha TCRT5000  
+#### Sensor de Linha HW871  
 - S1 = A10
-- S3 = X
 - S5 = A13 
 
 ### Alimentação
