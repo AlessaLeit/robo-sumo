@@ -19,6 +19,7 @@ Componente - Quantidade
 - Sensor Ultrassônico HC-SR04 - 3 
 - Sensor de Linha TCRT5000 ou HW871 - 1 
 - Bateria externa (para motores) - 1
+- Mini Protoboard - 1
 
 ##  Mapeamento de Pinos
 
@@ -26,15 +27,15 @@ Componente - Quantidade
 
 #### DRIVER 1 — Motor ESQUERDO (Verde/Laranja) 
 
-- D1_RPWM      53
-- D1_LPWM      50
+- D1_RPWM      2
+- D1_LPWM      3
 - D1_RENABLE   52
 - D1_LENABLE   51
 
 #### DRIVER 2 — Motor DIREITO (Amarelo/Roxo) 
 
-- D2_RPWM      23
-- D2_LPWM      24
+- D2_RPWM      6
+- D2_LPWM      5
 - D2_RENABLE   22
 - D2_LENABLE   25
 
@@ -58,8 +59,4 @@ Componente - Quantidade
 - S1 = A10
 - S5 = A13 
 
-### Alimentação
 
-- A **USB do Arduino** não é suficiente para alimentar os motores
-- Use uma **bateria externa** (7.4V ~ 12V) para os drivers BTS7960
-- Conecte o **GND** da bateria ao GND do Arduino
