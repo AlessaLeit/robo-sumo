@@ -1,80 +1,61 @@
-# Robô Sumô — Arduino
+# Robô Sumô Autônomo — Arduino
 
-Código-fonte de um robô sumô autônomo baseado em Arduino, utilizando tração diferencial (2 rodas), sensores ultrassônicos HC-SR04 e drivers BTS7960.
+Código-fonte de um robô sumô autônomo baseado em Arduino, utilizando tração diferencial (2 rodas), sensores ultrassônicos HC-SR04 e sensor de linha HW872 e drivers BTS7960.
 
-## 📋 Visão Geral
-
+##  Visão Geral
 O robô executa 3 fases principais:
 
 1. **Inicialização e busca da borda** — Avança até detectar a borda branca do dojo
-
 2. **Manobra** — Recua e gira 180° para ficar de costas para a borda
-
 3. **Busca e ataque** — Varre o ambiente com ultrassons e ataca o inimigo
 
-## 🧰 Componentes
+##  Componentes
 
 Componente - Quantidade 
 
 - Arduino Mega 2560 - 1 
 - Driver BTS7960 (Ponte H) - 2 
 - Motor DC - 2 
-- Sensor Ultrassônico HC-SR04 - 2 
-- Sensor de Linha TCRT5000  - 1 
+- Sensor Ultrassônico HC-SR04 - 3 
+- Sensor de Linha TCRT5000 ou HW871 - 1 
 - Bateria externa (para motores) - 1
+- Mini Protoboard - 1
 
-## 🔌 Mapeamento de Pinos
+##  Mapeamento de Pinos
 
 ### Drivers BTS7960
 
 #### DRIVER 1 — Motor ESQUERDO (Verde/Laranja) 
-- D1_RPWM = 53
-- D1_LPWM = 50
-- D1_RENABLE = 52
-- D1_LENABLE = 51
+
+- D1_RPWM      2
+- D1_LPWM      3
+- D1_RENABLE   52
+- D1_LENABLE   51
 
 #### DRIVER 2 — Motor DIREITO (Amarelo/Roxo) 
-- D2_RPWM = 23
-- D2_LPWM = 24
-- D2_RENABLE = 22
-- D2_LENABLE = 25
 
-### Sensores 
+- D2_RPWM      6
+- D2_LPWM      5
+- D2_RENABLE   22
+- D2_LENABLE   25
 
-#### Sensor CENTRO (frente) - sem fita
-- TRIG_CENTRO  = 44   
-- ECHO_CENTRO  = 45
+### Sensores
 
-#### Sensor DIAGONAL ESQUERDA - fita T
-- TRIG_ESQ = 46
-- ECHO_ESQ = 47
+#### 3 Sensores Ultrassônicos HC-SR04 
 
-#### Sensor DIAGONAL DIREITA - fita R 
+1. Sensor CENTRO (frente) - sem fita (Verde/Vermelho)
+- TRIG_CENTRO = 44
+- ECHO_CENTRO = 45
+
+2. Sensor DIAGONAL ESQUERDA - fita T (Branco/Amarelo)
+- TRIG_ESQ = 37
+- ECHO_ESQ = 36
+
+3. Sensor DIAGONAL DIREITA - fita R (Branco/Marrom)
 - TRIG_DIR = 43
 - ECHO_DIR = 42
 
-### Alimentação
-
-- A **USB do Arduino** não é suficiente para alimentar os motores
-- Use uma **bateria externa** (7.4V \~ 12V) para os drivers BTS7960
-- Conecte o **GND** da bateria ao GND do Arduino
-
-## 🧪 Como Testar
-
-### 1. Teste dos Motores
-Envie `codigo\_robosumo.ino` para o Arduino. O robô executará em sequência:
-
-1. Ambos para frente (3s)
-2. Parada (2s)
-3. Ambos para ré (3s)
-4. Parada (2s)
-5. Giro horário (3s)
-6. Parada (2s)
-7. Giro anti-horário (3s)
-8. Parada (5s) → repete
-
-## Anotações Aula
--> HC-SR04 com fita preta é o terciario 
-
-
+#### Sensor de Linha HW871  
+- S1 = A10
+- S5 = A13 
 
