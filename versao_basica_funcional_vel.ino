@@ -53,10 +53,11 @@ long medirDistancia(int trigPin, int echoPin) {
   digitalWrite(trigPin, LOW);
 
 
+  // Medir o eco, esperar no máximo 4oms
   long duracao = pulseIn(echoPin, HIGH, 40000);   // timeout 40ms
-  if (duracao == 0) return 999;
+  if (duracao == 0) return 999; // não retornou, não tem nada na frente
 
-  long distancia = duracao * 0.034 / 2;
+  long distancia = duracao * 0.034 / 2;  // calcula a distância em cm
   return distancia;
 }
 
