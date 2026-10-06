@@ -27,7 +27,7 @@
 
 #define LIMIAR_BRANCO    890
 #define TEMPO_RECUAR     400
-#define TEMPO_GIRO_180   650
+#define TEMPO_GIRO_180   660
 
 /* ==================== NOVAS CONSTANTES ANTI-FANTASMA =========== */
 #define LEITURAS_BORDA   2
